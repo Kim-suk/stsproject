@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>새글 등록</title>
+    <style>
+        h1 {
+            font-size: 120px;
+        }
+
+        .big-button {
+			margin-top:70px;
+			margin-bottom:150px;
+            padding: 30px 40px;
+            font-size: 60px;
+            border-radius: 8px;
+            background-color: #000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            animation: blink 1s infinite; /* 애니메이션 추가 */
+        }
+
+        .big-button:hover {
+            background-color: dimgray;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+		.double-line {
+					border: 0;
+					border-top: 30px double #000;
+					margin: 20px 0;
+					
+				}
+				
+				
+        /* 깜박이는 애니메이션 정의 */
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+		
+    </style>
+</head>
+<body>
+    <h1 align="center">MAIN</h1>
+<hr class="double-line">
+    <div class="button-container">
+        <form th:action="@{/board/boardList}" method="get">
+            <button type="submit" class="big-button">게시글</button>
+        </form>
+    </div>
+	
+</body>
+<hr class="double-line">>
+</html>
