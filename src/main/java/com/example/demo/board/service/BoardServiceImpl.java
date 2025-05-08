@@ -16,12 +16,10 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	BoardDAO dao;
 	
-	@Override
-	public List<BoardDTO> boardList() {
-		// TODO Auto-generated method stub
-		return dao.boardList();
-	}
-
+	/*
+	 * @Override public List<BoardDTO> boardList() { // TODO Auto-generated method
+	 * stub return dao.boardList(); }
+	 */
 	@Override
 	public void insertBoard(BoardDTO dto) {
 		// TODO Auto-generated method stub
@@ -35,7 +33,7 @@ public class BoardServiceImpl implements BoardService{
 		dto.setCnt(dto.getCnt() + 1);
 		dao.update(dto);
 		return dto;
-	}
+	}	
 
 	@Override
 	public void updateBoard(BoardDTO dto) {
@@ -50,6 +48,20 @@ public class BoardServiceImpl implements BoardService{
 		// dao.delete(dto);
 		return dao.deleteBoard(articleNo);
 	}
+
+	@Override
+	public List<BoardDTO> getBoardList(int page, int size) {
+		// TODO Auto-generated method stub
+		return dao.getBoardList(page, size);
+	}
+
+	@Override
+	public Long getTotalCount() {
+		// TODO Auto-generated method stub
+		return dao.getTotalCount()	;
+	}
+
+  
 }
 
 

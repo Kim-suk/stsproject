@@ -23,15 +23,15 @@ import lombok.ToString;
 @ToString
 public class BoardDTO {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="board_articleNo")
-	@SequenceGenerator(name="board_articleNo", sequenceName="board_articleNo", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
 	private int articleNo;
 	private String title;
 	private String content;
-	@Column(insertable=false, updatable=false, columnDefinition="date default sysdate")
+	@Column(insertable=false, updatable=false, columnDefinition="TIMESTAMP default CURRENT_TIMESTAMP")
 	private Date writeDate;
 	private String id;
-	@Column(insertable=false, columnDefinition="number default 0")
+	@Column(insertable=false, columnDefinition="int default 0")
 	private int cnt;
 	
 }

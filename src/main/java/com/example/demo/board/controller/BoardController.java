@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.demo.board.dto.BoardDTO;
 
 public interface BoardController {
-	public String boardList(Model model);
+	public String boardList(@RequestParam( name="page", defaultValue = "1") int page, Model model);
 	public String insertBoard();
 	public String insertBoard(BoardDTO dto, Model model, 
 			@RequestParam("files") List<MultipartFile> files) throws Exception;

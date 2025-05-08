@@ -29,11 +29,25 @@ public class BoardControllerImpl implements BoardController{
 	@Autowired
 	FileRepository repository;
 	
+	/*
+	 * @GetMapping("/boardList") public String boardList(Model model) {
+	 * List<BoardDTO> boardList = service.boardList();
+	 * model.addAttribute("boardList", boardList); return "board/boardList"; }
+	 */
+	
 	@GetMapping("/boardList")
-	public String boardList(Model model) {
-		List<BoardDTO> boardList = service.boardList();
-		model.addAttribute("boardList", boardList);
-		return "board/boardList";
+	public String boardList(@RequestParam( name="page", defaultValue = "1") int page, Model model) {
+	    int size = 10;
+
+	    List<BoardDTO> boardList = service.getBoardList(page, size);
+	    Long totalCount = service.getTotalCount();
+	    int totalPage = (int) Math.ceil((double) totalCount / size);
+
+	    model.addAttribute("boardList", boardList);
+	    model.addAttribute("currentPage", page);
+	    model.addAttribute("totalPage", totalPage);
+
+	    return "board/boardList";
 	}
 	
 	@GetMapping("/insertBoard")

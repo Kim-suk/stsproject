@@ -18,7 +18,7 @@ import org.springframework.web.util.UriUtils;
 
 @RestController
 public class FileController {
-	public static final String FILE_REPO = "C:\\springboot\\workspace\\final\\repository";
+	public static final String FILE_REPO = "/home/ubuntu/app/final/build/libs/file_repo";
 	
 	@GetMapping("/files/{articleNo}/{fileName}")
 	public ResponseEntity<Resource> downloadFile(
@@ -36,8 +36,7 @@ public class FileController {
 		// 한글 파일도 처리 가능
 		String encodedFileName = UriUtils.encode(resource.getFilename(),
 				StandardCharsets.UTF_8);
-		String contentDisposition = "attachment;filename=\""+encodedFileName +
-				"\";filename*=UTF-8''" + encodedFileName;
+		String contentDisposition = "attachment;filename=\""+encodedFileName + "\";filename*=UTF-8''" + encodedFileName;
 		
 		return ResponseEntity.ok()
 				.header(HttpHeaders.CONTENT_DISPOSITION, contentDisposition)
