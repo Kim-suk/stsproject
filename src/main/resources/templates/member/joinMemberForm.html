@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>회원가입</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/member.css">
+  <script src="/js/joinMemberForm.js"></script>
+
+</head>
+<div th:insert="~{fragments/header :: header}"></div>
+<body>
+
+  <form name="frm" class="container" method="post" action="/member/joinMember">
+    <h2>Join the Vibe 🚀</h2>
+    <input type="text" name="id" placeholder="Username" required>
+    <input type="password" name="pwd" placeholder="Password" required>
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <button type="button" onclick="fn_submit()">Sign Up</button>
+    <div class="login-link">
+      Already have an account? <a href="/member/loginForm">Login</a>
+    </div>
+  </form>
+
+</body>
+</html>
